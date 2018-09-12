@@ -1,0 +1,32 @@
+default_view:
+    icon: mdi:home
+    entities:
+      - group.bedroom
+bedroom:
+    name: Bedroom
+    icon: mdi:hotel
+    view: yes
+    entities:
+      - media_player.bedroom_tv
+porch:
+    name: Porch
+    icon: mdi:door-open
+    view: yes
+    entities:
+        camera.porch_camera
+kitchen:
+    name: Kitchen
+    icon: mdi:silverware-fork-knife
+    view: yes
+    entities:
+living:
+    name: Living Room
+    icon: mdi:sofa
+    view: yes
+    entities:
+children:
+    name: Children Room
+    icon: mdi:gamepad-variant
+    view: yes
+    entities:
+    
