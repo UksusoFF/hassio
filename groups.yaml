@@ -1,47 +1,47 @@
 default_view:
-    icon: mdi:home
-    entities:
-        - group.bedroom
-        - group.porch
+  icon: mdi:home
+  entities:
+  - group.bedroom
+  - group.porch
 bedroom_tv:
-    name: Bedroom TV
-    entities:
-      - sensor.bedroom_tv_volume
-      - sensor.bedroom_tv_mode
-      - sensor.bedroom_tv_source
-      - sensor.bedroom_tv_channel_name
-      - sensor.bedroom_tv_channel_number
-      - sensor.bedroom_tv_program_name
-      - camera.bedroom_tv_image
+  name: Bedroom TV
+  entities:
+  - sensor.bedroom_tv_volume
+  - sensor.bedroom_tv_mode
+  - sensor.bedroom_tv_source
+  - sensor.bedroom_tv_channel_name
+  - sensor.bedroom_tv_channel_number
+  - sensor.bedroom_tv_program_name
+  - camera.bedroom_tv_image
 bedroom:
-    name: Bedroom
-    icon: mdi:hotel
-    view: yes
-    entities:
-      - group.bedroom_tv
+  name: Bedroom
+  icon: mdi:hotel
+  view: yes
+  entities:
+  - group.bedroom_tv
 porch:
-    name: Porch
-    icon: mdi:door-open
-    view: yes
-    entities:
-        camera.porch_camera
+  name: Porch
+  icon: mdi:door-open
+  view: yes
+  entities:
+    camera.porch_camera
 kitchen:
-    name: Kitchen
-    icon: mdi:silverware-fork-knife
-    view: yes
-    entities:
+  name: Kitchen
+  icon: mdi:silverware-fork-knife
+  view: yes
+  entities:
 living:
-    name: Living Room
-    icon: mdi:sofa
-    view: yes
-    entities:
+  name: Living Room
+  icon: mdi:sofa
+  view: yes
+  entities:
 children:
-    name: Children Room
-    icon: mdi:gamepad-variant
-    view: yes
-    entities:
+  name: Children Room
+  icon: mdi:gamepad-variant
+  view: yes
+  entities:
 hallway:
-    name: Hallway
-    icon: mdi:door-open
-    view: yes
-    entities:
+  name: Hallway
+  icon: mdi:door-open
+  view: yes
+  entities:
