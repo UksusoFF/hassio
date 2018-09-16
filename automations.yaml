@@ -1,1 +1,20 @@
-[]
+- id: '1537110407965'
+  alias: Slack Notify
+  trigger:
+  - entity_id: device_tracker.android2e62f0295f67a50e
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      entity_id: camera.porch_camera
+      filename: /tmp/doorbell.jpg
+    service: camera.snapshot
+  - data:
+      data:
+        file:
+          path: /tmp/doorbell.jpg
+      message: Lena's phone go away.
+      title: Title of the file.
+    service: notify.slack

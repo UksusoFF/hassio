@@ -12,6 +12,8 @@ homeassistant:
   time_zone: Europe/Samara
   # Customization file
   customize: !include customize.yaml
+  whitelist_external_dirs:
+    - /tmp
 
 # Show links to resources in log and frontend
 #introduction:
@@ -129,7 +131,7 @@ notify:
 - name: Slack
   platform: slack
   api_key: !secret slack_token
-  default_channel: '#general'
+  default_channel: '#home'
 
 group: !include groups.yaml
 automation: !include automations.yaml
