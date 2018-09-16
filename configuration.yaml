@@ -32,11 +32,13 @@ config:
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+# Optional, allows Home Assistant developers to focus on popular components.
+# include_used_components: true
 
 # Discover some devices automatically
 discovery:
+  ignore:
+  - samsung_tv
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -70,21 +72,64 @@ panel_iframe:
     icon: mdi:wrench
     url: http://hassio.local:3218
 
-#media_player:
-#  - platform: samsungtv
-#    host: 192.168.1.50
-#    name: Bedroom TV
-    
-media_player:
-  - platform: samygo
-    host: 192.168.1.50
-    name: Bedroom TV
-    token: !secret bedroom_samygo_key
+device_tracker:
+- platform: ddwrt
+  host: 192.168.1.1
+  username: UksusoFF
+  password: !secret router_password
+  track_new_devices: false
+
+#switch:
+#- platform: wake_on_lan
+#  mac_address: "00-01-02-03-04-05" TODO: Enable
+
+sensor:
+- platform: rest
+  resource: !secret bedroom_tv_info_url
+  name: bedroom_tv
+  friendly_name: Bedroom TV
+  json_attributes:
+  - source
+  - tv_mode
+  - volume
+  - channel_number
+  - channel_name
+  - program_name
+  scan_interval: '00:05'
+- platform: template
+  sensors:
+    bedroom_tv_source:
+      value_template: '{{ states.sensor.bedroom_tv.attributes.source }}'
+      friendly_name: Source
+    bedroom_tv_mode:
+      value_template: '{{ states.sensor.bedroom_tv.attributes.tv_mode }}'
+      friendly_name: Mode
+    bedroom_tv_volume:
+      value_template: '{{ states.sensor.bedroom_tv.attributes.volume }}'
+      friendly_name: Volume
+    bedroom_tv_channel_number:
+      value_template: '{{ states.sensor.bedroom_tv.attributes.channel_number }}'
+      friendly_name: Channel Number
+    bedroom_tv_channel_name:
+      value_template: '{{ states.sensor.bedroom_tv.attributes.channel_name }}'
+      friendly_name: Channel Name
+    bedroom_tv_program_name:
+      value_template: '{{ states.sensor.bedroom_tv.attributes.program_name }}'
+      friendly_name: Program Name
 
 camera:
-  - platform: ffmpeg
-    name: Porch Camera
-    input: "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp?"
+- platform: generic
+  name: Bedroom TV Image
+  still_image_url: !secret bedroom_tv_image_url
+- platform: ffmpeg
+  name: Porch Camera
+  input: "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp?"
+
+notify:
+- name: Slack
+  platform: slack
+  api_key: !secret slack_token
+  default_channel: '#general'
 
 group: !include groups.yaml
 automation: !include automations.yaml
