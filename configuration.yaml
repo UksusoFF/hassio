@@ -79,7 +79,9 @@ device_tracker:
   host: 192.168.1.1
   username: UksusoFF
   password: !secret router_password
-  track_new_devices: false
+  track_new_devices: true
+  new_device_defaults:
+    track_new_devices: false
 
 #switch:
 #- platform: wake_on_lan
