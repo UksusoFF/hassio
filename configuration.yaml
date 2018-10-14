@@ -84,7 +84,7 @@ switch:
 - platform: wake_on_lan
   host: "192.168.1.5"
   name: "Kirill's PC"
-  mac_address: D4:3D:7E:E2:F9:08
+  mac_address: !secret kirills_pc_mac
     
 sensor:
 - platform: rest
