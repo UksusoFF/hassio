@@ -18,3 +18,17 @@
       message: Lena's phone go away.
       title: Title of the file.
     service: notify.slack
+- id: '1538920016332'
+  alias: Turn on PC at morning
+  trigger:
+  - at: '9:00:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: switch.kirills_pc
+    state: 'off'
+  action:
+  - alias: ''
+    data:
+      entity_id: switch.kirills_pc
+    service: switch.turn_on

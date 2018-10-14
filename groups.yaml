@@ -1,8 +1,17 @@
 default_view:
-  icon: mdi:home
+  name: house
+  view: yes
+  icon: mdi:home-assistant
   entities:
-  - group.bedroom
-  - group.porch
+    - group.bedroom
+    - group.porch
+    - group.kitchen
+    - group.living
+    - group.children
+    - group.hallway
+    - device_tracker.android2e62f0295f67a50e
+    - device_tracker.android5268f63eb95950f4
+    - sun.sun
 bedroom_tv:
   name: Bedroom TV
   entities:
@@ -30,6 +39,7 @@ kitchen:
   icon: mdi:silverware-fork-knife
   view: yes
   entities:
+    - switch.kirills_pc
 living:
   name: Living Room
   icon: mdi:sofa

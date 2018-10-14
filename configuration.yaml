@@ -57,10 +57,6 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
-#sensor:
-#  - platform: yr
-
 # Text to speech
 #tts:
 #  - platform: google
@@ -80,13 +76,16 @@ device_tracker:
   username: UksusoFF
   password: !secret router_password
   track_new_devices: true
+  interval_seconds: 120
   new_device_defaults:
     track_new_devices: false
 
-#switch:
-#- platform: wake_on_lan
-#  mac_address: "00-01-02-03-04-05" TODO: Enable
-
+switch:
+- platform: wake_on_lan
+  host: "192.168.1.5"
+  name: "Kirill's PC"
+  mac_address: D4:3D:7E:E2:F9:08
+    
 sensor:
 - platform: rest
   resource: !secret bedroom_tv_info_url
