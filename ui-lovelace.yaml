@@ -1,0 +1,64 @@
+title: My Awesome Home
+
+views:
+
+  - title: Home
+    icon: mdi:home-assistant
+    id: home
+    cards:
+      - type: glance
+        entities:
+        - device_tracker.android2e62f0295f67a50e
+        - device_tracker.android5268f63eb95950f4
+      - type: entities
+        entities:
+        - sun.sun
+      - type: weather-forecast
+        entity: weather.weather
+
+  - title: Bedroom
+    icon: mdi:hotel
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: TV
+            entities:
+            - entity: binary_sensor.bedroom_tv_ping
+              name: Status
+            - type: call-service
+              icon: mdi:power
+              name: Shutdown
+              action_name: Run
+              service: rest_command.bedroom_tv_shutdown
+              service_data: 
+                null: null
+            - type: picture-entity
+              name: Image
+              entity: camera.bedroom_tv_image
+            - entity: input_text.bedroom_tv_message
+
+  - title: Porch
+    icon: mdi:door-open
+    cards:
+    - type: picture-entity
+      entity: camera.porch_camera
+
+  - title: Kitchen
+    icon: mdi:silverware-fork-knife
+    cards:      
+    - type: entities
+      entities:
+      - switch.kirills_pc
+
+  - title: Living Room
+    icon: mdi:sofa
+    cards:
+
+  - title: Children Room
+    icon: mdi:gamepad-variant
+    cards:
+
+  - title: Hallway
+    icon: mdi:door-open
+    cards:

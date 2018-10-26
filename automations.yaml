@@ -1,10 +1,8 @@
 - id: '1537110407965'
-  alias: Slack Notify
+  alias: Slack Doorbell Notify
   trigger:
-  - entity_id: device_tracker.android2e62f0295f67a50e
-    from: home
-    platform: state
-    to: not_home
+  - platform: webhook
+    webhook_id: doorbell
   condition: []
   action:
   - data:
@@ -15,8 +13,8 @@
       data:
         file:
           path: /tmp/doorbell.jpg
-      message: Lena's phone go away.
-      title: Title of the file.
+      message: Knock-knock!
+      title: doorbell
     service: notify.slack
 - id: '1538920016332'
   alias: Turn on PC at morning
@@ -32,3 +30,22 @@
     data:
       entity_id: switch.kirills_pc
     service: switch.turn_on
+- id: '1540143489531'
+  alias: Show message on Bedroom TV
+  trigger:
+  - entity_id: input_text.bedroom_tv_message
+    platform: state
+  condition: []
+  action:
+  - service: rest_command.bedroom_tv_message
+- id: '1540533333691'
+  alias: Slack Notify New Device
+  trigger:
+  - event_data: {}
+    event_type: device_tracker_new_device
+    platform: event
+  condition: []
+  action:
+  - data:
+      message: New device!
+    service: notify.slack

@@ -18,8 +18,21 @@ homeassistant:
 # Show links to resources in log and frontend
 #introduction:
 
+recorder:
+  exclude:
+    domains:
+      - automation
+    entities:
+      - camera.porch_camera
+      - camera.bedroom_tv_image
+      - sensor.bedroom_tv_challenge
+      - input_text.bedroom_tv_message
+      - sensor.kicker_team
+
 # Enables the frontend
 frontend:
+  themes:
+    midnight: !include theme_midnight.yaml
 
 # Enables configuration UI
 config:
@@ -62,13 +75,21 @@ sun:
 #  - platform: google
 
 # Cloud
+
 cloud:
+input_text:
+  bedroom_tv_message:
+    name: Message
 
 panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
     url: http://hassio.local:3218
+  love:
+    title: Love
+    icon: mdi:heart
+    url: /lovelace
 
 device_tracker:
 - platform: ddwrt
@@ -80,45 +101,72 @@ device_tracker:
   new_device_defaults:
     track_new_devices: false
 
+rest_command:
+  bedroom_tv_shutdown:
+    url: !secret bedroom_tv_shutdown_url
+  bedroom_tv_message:
+    url: ""
+
 switch:
 - platform: wake_on_lan
   host: "192.168.1.5"
   name: "Kirill's PC"
   mac_address: !secret kirills_pc_mac
-    
+
+weather:
+- platform: openweathermap
+  name: Weather
+  api_key: !secret openweathermap_key
+  
+binary_sensor:
+  - platform: ping
+    host: 192.168.1.50
+    name: bedroom_tv_ping
+    friendly_name: Bedroom TV
+
 sensor:
-- platform: rest
-  resource: !secret bedroom_tv_info_url
-  name: bedroom_tv
-  friendly_name: Bedroom TV
-  json_attributes:
-  - source
-  - tv_mode
-  - volume
-  - channel_number
-  - channel_name
-  - program_name
-  scan_interval: '00:05'
-- platform: template
-  sensors:
-    bedroom_tv_source:
-      value_template: '{{ states.sensor.bedroom_tv.attributes.source }}'
-      friendly_name: Source
-    bedroom_tv_mode:
-      value_template: '{{ states.sensor.bedroom_tv.attributes.tv_mode }}'
-      friendly_name: Mode
-    bedroom_tv_volume:
-      value_template: '{{ states.sensor.bedroom_tv.attributes.volume }}'
-      friendly_name: Volume
-    bedroom_tv_channel_number:
-      value_template: '{{ states.sensor.bedroom_tv.attributes.channel_number }}'
-      friendly_name: Channel Number
-    bedroom_tv_channel_name:
-      value_template: '{{ states.sensor.bedroom_tv.attributes.channel_name }}'
-      friendly_name: Channel Name
-    bedroom_tv_program_name:
-      value_template: '{{ states.sensor.bedroom_tv.attributes.program_name }}'
-      friendly_name: Program Name
+  - platform: command_line
+    name: Kicker Team
+    command: "shuf -e Kirill Denis Andrey Anton"
+    scan_interval: 86400
+  - platform: template
+    sensors:
+      bedroom_tv_challenge:
+        value_template: !secret bedroom_tv_challenge
+      test_tv_message:
+        value_template: 'http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?action=ALERT&type=CENTER&challenge={{ states.sensor.bedroom_tv_challenge.value }}&message={{ states.input_text.bedroom_tv_message.value }}'
+#- platform: rest
+#  resource: !secret bedroom_tv_info_url
+#  name: bedroom_tv
+#  friendly_name: Bedroom TV
+#  json_attributes:
+#  - source
+#  - tv_mode
+#  - volume
+#  - channel_number
+#  - channel_name
+#  - program_name
+#  scan_interval: '00:05'
+#- platform: template
+#  sensors:
+#    bedroom_tv_source:
+#      value_template: '{{ states.sensor.bedroom_tv.attributes.source }}'
+#      friendly_name: Source
+#    bedroom_tv_mode:
+#      value_template: '{{ states.sensor.bedroom_tv.attributes.tv_mode }}'
+#      friendly_name: Mode
+#    bedroom_tv_volume:
+#      value_template: '{{ states.sensor.bedroom_tv.attributes.volume }}'
+#      friendly_name: Volume
+#    bedroom_tv_channel_number:
+#      value_template: '{{ states.sensor.bedroom_tv.attributes.channel_number }}'
+#      friendly_name: Channel Number
+#    bedroom_tv_channel_name:
+#      value_template: '{{ states.sensor.bedroom_tv.attributes.channel_name }}'
+#      friendly_name: Channel Name
+#    bedroom_tv_program_name:
+#      value_template: '{{ states.sensor.bedroom_tv.attributes.program_name }}'
+#      friendly_name: Program Name
 
 camera:
 - platform: generic
