@@ -15,24 +15,8 @@ homeassistant:
   whitelist_external_dirs:
     - /tmp
 
-# Show links to resources in log and frontend
-#introduction:
-
-recorder:
-  exclude:
-    domains:
-      - automation
-    entities:
-      - camera.porch_camera
-      - camera.bedroom_tv_image
-      - sensor.bedroom_tv_challenge
-      - input_text.bedroom_tv_message
-      - sensor.kicker_team
-
 # Enables the frontend
 frontend:
-  themes:
-    midnight: !include theme_midnight.yaml
 
 # Enables configuration UI
 config:
@@ -55,17 +39,11 @@ discovery:
   ignore:
   - samsung_tv
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
 # Enables support for tracking state changes over time
 history:
 
 # View all events in a logbook
 logbook:
-
-# Enables a map showing the location of tracked devices
-map:
 
 # Track the sun
 sun:
@@ -75,8 +53,22 @@ sun:
 #  - platform: google
 
 # Cloud
-
 cloud:
+
+recorder:
+  db_url: sqlite:////config/home-assistant_v2.db
+  exclude:
+    domains:
+      - automation
+    entities:
+      - camera.porch_camera
+      - camera.bedroom_tv_image
+      - sensor.bedroom_tv_challenge
+      - sensor.bedroom_tv_info_url
+      - input_text.bedroom_tv_message
+      - sensor.kicker_team
+      
+
 input_text:
   bedroom_tv_message:
     name: Message
@@ -103,9 +95,9 @@ device_tracker:
 
 rest_command:
   bedroom_tv_shutdown:
-    url: !secret bedroom_tv_shutdown_url
+    url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=SHUTDOWN"
   bedroom_tv_message:
-    url: ""
+    url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=ALERT&type=CENTER&message={{ states('input_text.bedroom_tv_message') }}"
 
 switch:
 - platform: wake_on_lan
@@ -133,8 +125,9 @@ sensor:
     sensors:
       bedroom_tv_challenge:
         value_template: !secret bedroom_tv_challenge
-      test_tv_message:
-        value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?action=ALERT&type=CENTER&challenge={{ states('sensor.bedroom_tv_challenge') }}&message={{ states('input_text.bedroom_tv_message') }}"
+      bedroom_tv_info_url:
+        value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
+        
 #- platform: rest
 #  resource: !secret bedroom_tv_info_url
 #  name: bedroom_tv
