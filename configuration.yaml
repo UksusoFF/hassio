@@ -67,7 +67,6 @@ recorder:
       - sensor.bedroom_tv_info_url
       - input_text.bedroom_tv_message
       - sensor.kicker_team
-      
 
 input_text:
   bedroom_tv_message:
@@ -164,7 +163,7 @@ sensor:
 camera:
 - platform: generic
   name: Bedroom TV Image
-  still_image_url: !secret bedroom_tv_image_url
+  still_image_url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=SNAPSHOT"
 - platform: ffmpeg
   name: Porch Camera
   input: "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp?"
