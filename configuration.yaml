@@ -134,7 +134,7 @@ sensor:
       bedroom_tv_challenge:
         value_template: !secret bedroom_tv_challenge
       test_tv_message:
-        value_template: 'http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?action=ALERT&type=CENTER&challenge={{ states.sensor.bedroom_tv_challenge.value }}&message={{ states.input_text.bedroom_tv_message.value }}'
+        value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?action=ALERT&type=CENTER&challenge={{ states('sensor.bedroom_tv_challenge') }}&message={{ states('input_text.bedroom_tv_message') }}"
 #- platform: rest
 #  resource: !secret bedroom_tv_info_url
 #  name: bedroom_tv
