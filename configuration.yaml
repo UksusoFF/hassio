@@ -56,7 +56,6 @@ sun:
 cloud:
 
 recorder:
-  db_url: sqlite:////config/home-assistant_v2.db
   exclude:
     domains:
       - automation
