@@ -66,6 +66,8 @@ recorder:
       - sensor.bedroom_tv_info_url
       - input_text.bedroom_tv_message
       - sensor.kicker_team
+      - device_tracker.esp_3943e3
+      - device_tracker.kirills_mac
 
 input_text:
   bedroom_tv_message:
@@ -111,8 +113,7 @@ weather:
 binary_sensor:
   - platform: ping
     host: 192.168.1.50
-    name: bedroom_tv_ping
-    friendly_name: Bedroom TV
+    name: Bedroom TV
 
 sensor:
   - platform: command_line

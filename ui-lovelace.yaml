@@ -24,7 +24,7 @@ views:
           - type: entities
             title: TV
             entities:
-            - entity: binary_sensor.bedroom_tv_ping
+            - entity: binary_sensor.bedroom_tv
               name: Status
             - type: call-service
               icon: mdi:power
