@@ -43,17 +43,21 @@ views:
     cards:
     - type: picture-entity
       entity: camera.porch_camera
+    - type: picture-entity
+      entity: camera.intercom_camera
+    - type: picture-entity
+      entity: camera.first_floor_camera
 
   - title: Kitchen
     icon: mdi:silverware-fork-knife
     cards:      
-    - type: entities
-      entities:
-      - switch.kirills_pc
 
   - title: Living Room
     icon: mdi:sofa
     cards:
+    - type: entities
+      entities:
+      - switch.kirill_s_pc
 
   - title: Children Room
     icon: mdi:gamepad-variant

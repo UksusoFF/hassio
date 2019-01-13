@@ -69,6 +69,9 @@ recorder:
       - device_tracker.esp_3943e3
       - device_tracker.kirills_mac
 
+lovelace:
+  mode: yaml
+
 input_text:
   bedroom_tv_message:
     name: Message
@@ -118,7 +121,7 @@ binary_sensor:
 sensor:
   - platform: command_line
     name: Kicker Team
-    command: "shuf -e Kirill Denis Andrey Anton"
+    command: "/config/team.sh"
     scan_interval: 86400
   - platform: template
     sensors:
@@ -167,7 +170,13 @@ camera:
 - platform: ffmpeg
   name: Porch Camera
   input: "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp?"
-
+- platform: ffmpeg
+  name: Intercom Camera
+  input: "rtsp://192.168.1.10:554/user=admin&password=&channel=2&stream=0.sdp?"
+- platform: ffmpeg
+  name: First Floor Camera
+  input: "rtsp://192.168.1.10:554/user=admin&password=&channel=3&stream=0.sdp?"
+  
 notify:
 - name: Slack
   platform: slack

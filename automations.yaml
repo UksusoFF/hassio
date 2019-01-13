@@ -49,3 +49,21 @@
   - data:
       message: New device!
     service: notify.slack
+- id: '1543758079076'
+  alias: Slack Intercom Notify
+  trigger:
+  - platform: webhook
+    webhook_id: intercom
+  condition: []
+  action:
+  - data:
+      entity_id: camera.intercom_camera
+      filename: /tmp/intercom.jpg
+    service: camera.snapshot
+  - data:
+      data:
+        file:
+          path: /tmp/intercom.jpg
+      message: Knock-knock!
+      title: intercom
+    service: notify.slack
