@@ -80,13 +80,3 @@
       message: Knock-knock!
       target: 2171052962983820
     service: notify.facebook
-- id: '1556017411168'
-  alias: Viber
-  trigger:
-  - platform: webhook
-    webhook_id: viber
-  condition: []
-  action:
-  - data_template:
-      message: '{{ trigger.json.event|default("my_variable is not defined") }}'
-    service: notify.slack
