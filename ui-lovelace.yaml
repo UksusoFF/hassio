@@ -1,3 +1,8 @@
+resources:
+
+  - url: /local/camera-card.js
+    type: module
+
 title: My Awesome Home
 
 views:
@@ -57,6 +62,7 @@ views:
     cards:
     - type: entities
       entities:
+      - automation.turn_on_pc_at_morning
       - switch.kirill_s_pc
 
   - title: Children Room

@@ -15,6 +15,12 @@ homeassistant:
   whitelist_external_dirs:
     - /tmp
 
+#http:
+#  ssl_certificate: /ssl/fullchain.pem
+#  ssl_key: /ssl/privkey.pem
+
+system_health:
+
 # Enables the frontend
 frontend:
 
@@ -55,36 +61,34 @@ sun:
 # Cloud
 cloud:
 
+map:
+
 recorder:
   exclude:
     domains:
       - automation
+      - camera
+      - route
     entities:
-      - camera.porch_camera
-      - camera.bedroom_tv_image
       - sensor.bedroom_tv_challenge
       - sensor.bedroom_tv_info_url
       - input_text.bedroom_tv_message
       - sensor.kicker_team
-      - device_tracker.esp_3943e3
       - device_tracker.kirills_mac
+      - device_tracker.eeepc1008ha
 
 lovelace:
   mode: yaml
 
+#panel_iframe:
+#  configurator:
+#    title: Configurator
+#    icon: mdi:wrench
+#    url: /hassio/ingress/core_configurator
+
 input_text:
   bedroom_tv_message:
     name: Message
-
-panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: http://hassio.local:3218
-  love:
-    title: Love
-    icon: mdi:heart
-    url: /lovelace
 
 device_tracker:
 - platform: ddwrt
@@ -117,7 +121,12 @@ binary_sensor:
   - platform: ping
     host: 192.168.1.50
     name: Bedroom TV
-
+  - platform: ping
+    host: 8.8.8.8
+    name: Internet
+    count: 1
+    scan_interval: 30
+    
 sensor:
   - platform: command_line
     name: Kicker Team
@@ -129,7 +138,11 @@ sensor:
         value_template: !secret bedroom_tv_challenge
       bedroom_tv_info_url:
         value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
-        
+#  - platform: route
+#    name: route
+#    entityid: device_tracker.astra
+#    haddr: "http://192.168.1.51:8123/"
+#    token: !secret route_token
 #- platform: rest
 #  resource: !secret bedroom_tv_info_url
 #  name: bedroom_tv
@@ -182,6 +195,9 @@ notify:
   platform: slack
   api_key: !secret slack_token
   default_channel: '#home'
+- name: Facebook
+  platform: facebook
+  page_access_token: !secret facebook_token
 
 group: !include groups.yaml
 automation: !include automations.yaml
