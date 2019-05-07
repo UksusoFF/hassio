@@ -51,7 +51,8 @@
   condition: []
   action:
   - data_template:
-      message: New entity ID {{ trigger.event.data.entity_id }} and hostname {{ trigger.event.data.host_name }}
+      message: New entity ID {{ trigger.event.data.entity_id }} and hostname {{ trigger.event.data.host_name
+        }}
     service: notify.slack
   - data:
       message: New device
