@@ -1,3 +1,11 @@
+resources:
+  - url: /customcards/tracker-card.js?track=true
+    type: module
+  - url: /customcards/vertical-stack-in-card.js?track=true
+    type: module
+  - url: /customcards/github/custom-cards/button-card.js?track=true
+    type: module
+
 title: My Awesome Home
 
 views:
@@ -21,23 +29,69 @@ views:
     cards:
       - type: vertical-stack
         cards:
-          - type: entities
+          - type: entity-button
+            entity: switch.bedroom_light
+            show_name: false
+            icon: mdi:lightbulb
+          - type: custom:vertical-stack-in-card
             title: TV
-            entities:
-            - entity: binary_sensor.bedroom_tv
-              name: Status
-            - type: call-service
-              icon: mdi:power
-              name: Shutdown
-              action_name: Run
-              service: rest_command.bedroom_tv_shutdown
-              service_data: 
-                null: null
+            cards:
+            - type: entities
+              show_header_toggle: false
+              entities:
+              - entity: binary_sensor.bedroom_tv
+                name: Status
+              - entity: input_text.bedroom_tv_message
+            - type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  icon: mdi:power-plug-off
+                  tap_action:
+                    action: call-service
+                    service: rest_command.bedroom_tv_shutdown
+                    service_data:
+                  styles:
+                    card:
+                      - box-shadow: none
+                - type: custom:button-card
+                  icon: mdi:pause
+                  tap_action:
+                    action: call-service
+                    service: rest_command.bedroom_tv_pause
+                    service_data:
+                  styles:
+                    card:
+                      - box-shadow: none
+                - type: custom:button-card
+                  icon: mdi:play
+                  tap_action:
+                    action: call-service
+                    service: rest_command.bedroom_tv_play
+                    service_data:
+                  styles:
+                    card:
+                      - box-shadow: none
+                - type: custom:button-card
+                  icon: mdi:volume-minus
+                  tap_action:
+                    action: call-service
+                    service: rest_command.bedroom_tv_vol_down
+                    service_data:
+                  styles:
+                    card:
+                      - box-shadow: none
+                - type: custom:button-card
+                  icon: mdi:volume-plus
+                  tap_action:
+                    action: call-service
+                    service: rest_command.bedroom_tv_vol_up
+                    service_data:
+                  styles:
+                    card:
+                      - box-shadow: none
             - type: picture-entity
-              name: Image
               entity: camera.bedroom_tv_image
-            - entity: input_text.bedroom_tv_message
-
+              
   - title: Porch
     icon: mdi:door-open
     cards:
@@ -55,6 +109,10 @@ views:
   - title: Living Room
     icon: mdi:sofa
     cards:
+    - type: entity-button
+      entity: switch.living_room_light
+      show_name: false
+      icon: mdi:lightbulb
     - type: entities
       entities:
       - automation.turn_on_pc_at_morning
@@ -63,7 +121,19 @@ views:
   - title: Children Room
     icon: mdi:gamepad-variant
     cards:
+    - type: entity-button
+      entity: switch.children_room_light
+      show_name: false
+      icon: mdi:lightbulb
 
   - title: Hallway
     icon: mdi:door-open
     cards:
+    - type: entity-button
+      entity: switch.hallway_light
+      show_name: false
+      icon: mdi:lightbulb
+
+  - title: Config
+    cards:
+    - type: custom:tracker-card

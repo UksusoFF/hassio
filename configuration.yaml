@@ -35,6 +35,10 @@ discovery:
   ignore:
   - samsung_tv
 
+mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
+  
 # Enables support for tracking state changes over time
 history:
 
@@ -58,11 +62,14 @@ recorder:
     entities:
       - sensor.bedroom_tv_challenge
       - sensor.bedroom_tv_info_url
-      - input_text.bedroom_tv_message
       - sensor.kicker_team
+      - sensor.custom_card_tracker
+      - sensor.custom_component_tracker
+      - input_text.bedroom_tv_message
       - device_tracker.esp_3943e3
       - device_tracker.kirills_mac
       - device_tracker.eeepc1008ha
+      - device_tracker.huawei_mediapad_m3_lite_1
 
 lovelace:
   mode: yaml
@@ -78,20 +85,58 @@ device_tracker:
     password: !secret router_password
     track_new_devices: true
     interval_seconds: 120
-    new_device_defaults:
-      track_new_devices: false
+#    new_device_defaults:
+#      track_new_devices: false
 
 rest_command:
   bedroom_tv_shutdown:
     url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=SHUTDOWN"
+  bedroom_tv_play:
+    url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=KEY&key=KEY_PLAY"
+  bedroom_tv_pause:
+    url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=KEY&key=KEY_PAUSE"
+  bedroom_tv_vol_up:
+    url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=KEY&key=KEY_VOLUP"
+  bedroom_tv_vol_down:
+    url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=KEY&key=KEY_VOLDOWN"
   bedroom_tv_message:
     url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=ALERT&type=CENTER&message={{ states('input_text.bedroom_tv_message') }}"
 
 switch:
   - platform: wake_on_lan
-    host: "192.168.1.5"
+    host: 192.168.1.5
     name: "Kirill's PC"
     mac_address: !secret kirills_pc_mac
+  - platform: wake_on_lan
+    host: 192.168.1.52
+    name: "living_room_tv_on"
+    mac_address: !secret hisens_tv_mac
+#  - platform: mqtt
+#    name: "living_room_tv_off"
+#    state_topic: "/remoteapp/mobile/broadcast/ui_service/state"
+#    command_topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+#    payload_on: "KEY_POWER"
+#    optimistic: false
+#    qos: 0
+#    retain: false
+#  - platform: template
+#    switches:
+#      living_room_tv:
+#        value_template: "{{ is_state('binary_sensor.living_room_tv', 'on') }}"
+#        turn_on:
+#          service: switch.turn_on
+#          data:
+#            entity_id:  switch.living_room_tv_on
+#        turn_off:
+#          service: switch.turn_on
+#          data:
+#            entity_id:  switch.living_room_tv_off
+  - platform: rpi_gpio
+    ports:
+      6: Bedroom Light
+      13: Children Room Light
+      19: Hallway Light
+      26: Living Room Light
 
 weather:
   - platform: openweathermap
@@ -102,17 +147,18 @@ binary_sensor:
   - platform: ping
     host: 192.168.1.50
     name: Bedroom TV
+#  - platform: ping
+#    host: 192.168.1.52
+#    name: Living Room TV
+#    count: 2
+#    scan_interval: 2
   - platform: ping
     host: 8.8.8.8
     name: Internet
     count: 1
     scan_interval: 30
-    
+
 sensor:
-  - platform: command_line
-    name: Kicker Team
-    command: "/config/team.sh"
-    scan_interval: 86400
   - platform: template
     sensors:
       bedroom_tv_challenge:
@@ -133,7 +179,7 @@ camera:
   - platform: ffmpeg
     name: First Floor Camera
     input: "rtsp://192.168.1.10:554/user=admin&password=&channel=3&stream=0.sdp?"
-  
+
 notify:
   - name: Slack
     platform: slack
