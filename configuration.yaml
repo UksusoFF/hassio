@@ -30,6 +30,9 @@ config:
 # Checks for available updates
 updater:
 
+hacs:
+  token: !secret github_token
+
 # Discover some devices automatically
 discovery:
   ignore:
@@ -59,17 +62,12 @@ recorder:
       - automation
       - camera
       - route
+      - hacs
     entities:
       - sensor.bedroom_tv_challenge
       - sensor.bedroom_tv_info_url
       - sensor.kicker_team
-      - sensor.custom_card_tracker
-      - sensor.custom_component_tracker
       - input_text.bedroom_tv_message
-      - device_tracker.esp_3943e3
-      - device_tracker.kirills_mac
-      - device_tracker.eeepc1008ha
-      - device_tracker.huawei_mediapad_m3_lite_1
 
 lovelace:
   mode: yaml
@@ -85,8 +83,8 @@ device_tracker:
     password: !secret router_password
     track_new_devices: true
     interval_seconds: 120
-#    new_device_defaults:
-#      track_new_devices: false
+    new_device_defaults:
+      track_new_devices: true
 
 rest_command:
   bedroom_tv_shutdown:
@@ -165,6 +163,8 @@ sensor:
         value_template: !secret bedroom_tv_challenge
       bedroom_tv_info_url:
         value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
+  - platform: rpi_power
+    text_state: true
 
 camera:
   - platform: generic
