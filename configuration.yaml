@@ -19,6 +19,8 @@ homeassistant:
 #  ssl_certificate: /ssl/fullchain.pem
 #  ssl_key: /ssl/privkey.pem
 
+breaking_changes:
+
 system_health:
 
 # Enables the frontend
@@ -57,6 +59,7 @@ cloud:
 map:
 
 recorder:
+  purge_keep_days: 30
   exclude:
     domains:
       - automation
@@ -66,8 +69,10 @@ recorder:
     entities:
       - sensor.bedroom_tv_challenge
       - sensor.bedroom_tv_info_url
-      - sensor.kicker_team
+#      - sensor.to_samara
       - input_text.bedroom_tv_message
+      - switch.living_room_tv_off
+      - switch.living_room_tv_on
 
 lovelace:
   mode: yaml
@@ -85,6 +90,9 @@ device_tracker:
     interval_seconds: 120
     new_device_defaults:
       track_new_devices: true
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.1.53
 
 rest_command:
   bedroom_tv_shutdown:
@@ -106,30 +114,31 @@ switch:
     name: "Kirill's PC"
     mac_address: !secret kirills_pc_mac
   - platform: wake_on_lan
-    host: 192.168.1.52
+    host: 192.168.1.53
     name: "living_room_tv_on"
-    mac_address: !secret hisens_tv_mac
-#  - platform: mqtt
-#    name: "living_room_tv_off"
-#    state_topic: "/remoteapp/mobile/broadcast/ui_service/state"
-#    command_topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
-#    payload_on: "KEY_POWER"
-#    optimistic: false
-#    qos: 0
-#    retain: false
-#  - platform: template
-#    switches:
-#      living_room_tv:
-#        value_template: "{{ is_state('binary_sensor.living_room_tv', 'on') }}"
-#        turn_on:
-#          service: switch.turn_on
-#          data:
-#            entity_id:  switch.living_room_tv_on
-#        turn_off:
-#          service: switch.turn_on
-#          data:
-#            entity_id:  switch.living_room_tv_off
+    mac_address: !secret hisens_tv_mac_wifi
+  - platform: mqtt
+    name: "living_room_tv_off"
+    state_topic: "/remoteapp/mobile/broadcast/ui_service/state"
+    command_topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+    payload_on: "KEY_POWER"
+    optimistic: false
+    qos: 0
+    retain: false
+  - platform: template
+    switches:
+      living_room_tv:
+        value_template: "{{ is_state('binary_sensor.living_room_tv', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          data:
+            entity_id: switch.living_room_tv_on
+        turn_off:
+          service: switch.turn_on
+          data:
+            entity_id: switch.living_room_tv_off
   - platform: rpi_gpio
+    invert_logic: true
     ports:
       6: Bedroom Light
       13: Children Room Light
@@ -145,11 +154,11 @@ binary_sensor:
   - platform: ping
     host: 192.168.1.50
     name: Bedroom TV
-#  - platform: ping
-#    host: 192.168.1.52
-#    name: Living Room TV
-#    count: 2
-#    scan_interval: 2
+  - platform: ping
+    host: 192.168.1.54
+    name: Living Room TV Box
+    count: 2
+    scan_interval: 2
   - platform: ping
     host: 8.8.8.8
     name: Internet
@@ -157,6 +166,10 @@ binary_sensor:
     scan_interval: 30
 
 sensor:
+#  - platform: command_line
+#    name: TO Samara
+#    command: "curl 'http://m.tosamara.ru/xml_bridge.php' --data 'method=getFirstArrivalToStop&KS_ID=996&COUNT=10&version=mobile'"
+#    scan_interval: 86400
   - platform: template
     sensors:
       bedroom_tv_challenge:
@@ -174,11 +187,14 @@ camera:
     name: Porch Camera
     input: "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp?"
   - platform: ffmpeg
-    name: Intercom Camera
+    name: First Floor Camera
     input: "rtsp://192.168.1.10:554/user=admin&password=&channel=2&stream=0.sdp?"
   - platform: ffmpeg
-    name: First Floor Camera
+    name: Intercom Camera
     input: "rtsp://192.168.1.10:554/user=admin&password=&channel=3&stream=0.sdp?"
+  - platform: ffmpeg
+    name: Key Room Camera
+    input: "rtsp://192.168.1.10:554/user=admin&password=&channel=4&stream=0.sdp?"
 
 notify:
   - name: Slack

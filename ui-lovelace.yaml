@@ -3,7 +3,9 @@ resources:
     type: js
   - url: /community_plugin/button-card/button-card.js
     type: module
-    
+  - url: /community_plugin/weather-card/weather-card.js
+    type: module
+
 title: My Awesome Home
 
 views:
@@ -18,19 +20,25 @@ views:
         - device_tracker.android5268f63eb95950f4
       - type: entities
         entities:
+        - binary_sensor.internet
         - sun.sun
       - type: weather-forecast
         entity: weather.weather
-
+  
   - title: Bedroom
     icon: mdi:hotel
     cards:
       - type: vertical-stack
         cards:
-          - type: entity-button
+          - type: custom:button-card
             entity: switch.bedroom_light
             show_name: false
             icon: mdi:lightbulb
+            state:
+            - value: "on"
+              color: "#44739e"
+            - operator: default
+              color: "#FDD835"
           - type: custom:vertical-stack-in-card
             title: TV
             cards:
@@ -99,6 +107,8 @@ views:
       entity: camera.intercom_camera
     - type: picture-entity
       entity: camera.first_floor_camera
+    - type: picture-entity
+      entity: camera.key_room_camera
 
   - title: Kitchen
     icon: mdi:silverware-fork-knife
@@ -107,10 +117,15 @@ views:
   - title: Living Room
     icon: mdi:sofa
     cards:
-    - type: entity-button
+    - type: custom:button-card
       entity: switch.living_room_light
       show_name: false
       icon: mdi:lightbulb
+      state:
+        - value: "on"
+          color: "#44739e"
+        - operator: default
+          color: "#FDD835"
     - type: entities
       entities:
       - automation.turn_on_pc_at_morning
@@ -119,15 +134,25 @@ views:
   - title: Children Room
     icon: mdi:gamepad-variant
     cards:
-    - type: entity-button
+    - type: custom:button-card
       entity: switch.children_room_light
       show_name: false
       icon: mdi:lightbulb
+      state:
+        - value: "on"
+          color: "#44739e"
+        - operator: default
+          color: "#FDD835"
 
   - title: Hallway
     icon: mdi:door-open
     cards:
-    - type: entity-button
+    - type: custom:button-card
       entity: switch.hallway_light
       show_name: false
       icon: mdi:lightbulb
+      state:
+        - value: "on"
+          color: "#44739e"
+        - operator: default
+          color: "#FDD835"
