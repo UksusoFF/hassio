@@ -1,10 +1,10 @@
-/custom_components/*
-/.storage/*
 /.cloud/*
-/secrets.yaml
-/known_devices.yaml
+/.shopping_list.json
+/.storage/*
+/.uuid
+/custom_components/*
 /home-assistant.log
 /home-assistant_v2.db
 /home-assistant_v2.db-*
-/.shopping_list.json
-/.uuid
+/known_devices.yaml
+/secrets.yaml
