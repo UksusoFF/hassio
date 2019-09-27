@@ -29,7 +29,7 @@ DVR_IP="192.168.1.10"
 DVR_ID="0012169e66b0"
 CAM_CHANNEL="04"
 
-SLACK_TOKEN=$(cat "/config/secrets.yaml" 2>/dev/null | grep $SLACK_TOKEN_KEY)
+SLACK_TOKEN=$(cat "/config/secrets.yaml" | grep $SLACK_TOKEN_KEY)
 SLACK_TOKEN=$(echo $SLACK_TOKEN | sed -e "s/$SLACK_TOKEN_KEY: //")
 
 mkdir -p "$TARGET_DIR"
