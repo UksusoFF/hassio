@@ -1,6 +1,10 @@
-*
-!*.yaml
-!.gitignore
-!/_scripts/*
-secrets.yaml
-known_devices.yaml
+/custom_components/*
+/.storage/*
+/.cloud/*
+/secrets.yaml
+/known_devices.yaml
+/home-assistant.log
+/home-assistant_v2.db
+/home-assistant_v2.db-*
+/.shopping_list.json
+/.uuid
