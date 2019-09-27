@@ -1,6 +1,6 @@
 *
 !*.yaml
 !.gitignore
+!/_scripts/*
 secrets.yaml
 known_devices.yaml
-/bin/*
