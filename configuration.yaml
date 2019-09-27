@@ -59,7 +59,7 @@ cloud:
 map:
 
 recorder:
-  purge_keep_days: 30
+  purge_keep_days: 7
   exclude:
     domains:
       - automation
