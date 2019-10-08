@@ -168,7 +168,7 @@ binary_sensor:
 sensor:
   - platform: command_line
     name: Key Room Camera Cron
-    command: "/config/_scripts/dvr-slack.sh > /config/_scripts/dvr-slack.log"
+    command: "/config/_scripts/dvr-slack.sh > /config/_scripts/dvr-slack.log 2>> /config/_scripts/dvr-slack.err"
     scan_interval: 300
   - platform: template
     sensors:
