@@ -27,7 +27,6 @@ SLACK_CHANNEL="#keyroom"
 
 DVR_IP="192.168.1.10"
 DVR_ID="0012169e66b0"
-CAM_CHANNEL=("02" "04")
 
 SLACK_TOKEN=$(cat "/config/secrets.yaml" | grep $SLACK_TOKEN_KEY)
 SLACK_TOKEN=$(echo $SLACK_TOKEN | sed -e "s/$SLACK_TOKEN_KEY: //")
@@ -47,13 +46,11 @@ if [ ! -f "$TARGET_DIR/ffmpeg" ]; then
   chmod +x "$TARGET_DIR/ffmpeg"
 fi
 
-for CAM in CAM_CHANNEL; do
-for F in $(ls -1 /share/${DVR_IP}_${DVR_ID}/*/$CAM_CHANNEL/rec/*.h264); do
+for F in $(ls -1 /share/${DVR_IP}_${DVR_ID}/*/{02,04}/rec/*.h264 2> /dev/null); do
   echo "$F"
   NAME=$(basename "$F" ".h264")
   "$TARGET_DIR/ffmpeg" -y -framerate 24 -i "$F" -c copy "$DECODE_DIR/$NAME.mp4"
   curl -F file=@"$DECODE_DIR/$NAME.mp4" -F channels="$SLACK_CHANNEL" -H "Authorization: Bearer $SLACK_TOKEN" https://slack.com/api/files.upload
   rm -rf "$DECODE_DIR/$NAME.mp4"
   rm -rf "$F"
-done
 done
