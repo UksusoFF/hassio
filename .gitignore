@@ -8,3 +8,5 @@
 /home-assistant_v2.db-*
 /known_devices.yaml
 /secrets.yaml
+/_scripts/dvr-slack.err
+/_scripts/dvr-slack.log
