@@ -1,312 +1,0 @@
-/config/_scripts/dvr-slack.sh: line 52: /config/_scripts/bin/ffmpeg: Permission denied
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x2b8adb0] Invalid NAL unit 0, skipping.
-[h264 @ 0x2b836e0] Invalid NAL unit 0, skipping.
-[h264 @ 0x2b836e0] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-08/02/rec/12.07.16-12.07.49[M][@2a15d][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/12.07.16-12.07.49[M][@2a15d][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x2b84ae0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  558 fps=0.0 q=-1.0 Lsize=    4538kB time=00:00:23.20 bitrate=1601.8kbits/s speed= 134x    
-video:4531kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.157854%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  3 4538k    0     0    3  144k      0   416k  0:00:10 --:--:--  0:00:10  414k 42 4538k    0     0   42 1920k      0  1426k  0:00:03  0:00:01  0:00:02 1425k 79 4538k    0     0   79 3616k      0  1541k  0:00:02  0:00:02 --:--:-- 1540k100 4538k    0     0  100 4538k      0  1208k  0:00:03  0:00:03 --:--:-- 1208k100 4539k    0  1127  100 4538k    300  1208k  0:00:03  0:00:03 --:--:-- 1208k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x2c52db0] Invalid NAL unit 0, skipping.
-[h264 @ 0x2c4b6e0] Invalid NAL unit 0, skipping.
-[h264 @ 0x2c4b6e0] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-08/02/rec/12.51.55-12.52.26[M][@2a183][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/12.51.55-12.52.26[M][@2a183][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x2c4c320] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  518 fps=0.0 q=-1.0 Lsize=    4197kB time=00:00:21.54 bitrate=1595.9kbits/s speed= 136x    
-video:4190kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.159980%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  1 4197k    0     0    1 49152      0   240k  0:00:17 --:--:--  0:00:17  238k 40 4197k    0     0   40 1680k      0  1401k  0:00:02  0:00:01  0:00:01 1400k 81 4197k    0     0   81 3408k      0  1549k  0:00:02  0:00:02 --:--:-- 1549k100 4197k    0     0  100 4197k      0  1203k  0:00:03  0:00:03 --:--:-- 1203k100 4198k    0  1127  100 4197k    322  1202k  0:00:03  0:00:03 --:--:-- 1202k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x3d47db0] Invalid NAL unit 0, skipping.
-[h264 @ 0x3d406e0] Invalid NAL unit 0, skipping.
-[h264 @ 0x3d406e0] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-08/04/rec/12.07.25-12.07.39[M][@2a15e][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/12.07.25-12.07.39[M][@2a15e][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x3d44d30] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  299 fps=0.0 q=-1.0 Lsize=    2402kB time=00:00:12.41 bitrate=1584.8kbits/s speed= 164x    
-video:2398kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.174992%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 13 2402k    0     0   13  336k      0   807k  0:00:02 --:--:--  0:00:02  807k 85 2402k    0     0   85 2064k      0  1457k  0:00:01  0:00:01 --:--:-- 1457k100 2403k    0  1127  100 2402k    495  1056k  0:00:02  0:00:02 --:--:-- 1057k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x2ad5db0] Invalid NAL unit 0, skipping.
-[h264 @ 0x2ace6e0] Invalid NAL unit 0, skipping.
-[h264 @ 0x2ace6e0] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-08/04/rec/12.52.04-12.52.17[M][@2a184][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/12.52.04-12.52.17[M][@2a184][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x2acfca0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-frame=  296 fps=0.0 q=-1.0 Lsize=    2399kB time=00:00:12.29 bitrate=1598.9kbits/s speed= 161x    
-video:2395kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.173948%
-[AVBSFContext @ 0x418ee50] Invalid NAL unit 0, skipping.
-[h264 @ 0x4187780] Invalid NAL unit 0, skipping.
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0[h264 @ 0x4187780] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-08/04/rec/12.52.04-12.52.17[M][@2a184][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/12.52.04-12.52.17[M][@2a184][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x4189310] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  296 fps=0.0 q=-1.0 Lsize=    2399kB time=00:00:12.29 bitrate=1598.9kbits/s speed= 360x    
-video:2395kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.173948%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 32 2399k    0     0   32  4 6 2738949k k      0        00     4161 5141k0 4 k0 : 0 0 : 0 20   1-304k  0:00:01 --:--:--  0:00:01 1303k-:--:--  0:00:02 1154k100 2400k    0  1127  100 2399k    492  1047k  0:00:02  0:00:02 --:--:-- 1048k100 2400k    0  1127  100 2399k    491  1046k  0:00:02  0:00:02 --:--:-- 1047k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x406ddb0] Invalid NAL unit 0, skipping.
-[h264 @ 0x40666e0] Invalid NAL unit 0, skipping.
-[h264 @ 0x40666e0] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-10/02/rec/05.43.34-05.43.44[M][@2a455][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/05.43.34-05.43.44[M][@2a455][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x4067ca0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  242 fps=0.0 q=-1.0 Lsize=    1971kB time=00:00:10.04 bitrate=1607.5kbits/s speed= 184x    
-video:1967kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.179725%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 2399k    0     0  100 2399k      0   999k  0:00:02  0:00:02 --:--:--  999k100 2400k    0  1127  100 2399k    469   999k  0:00:02  0:00:02 --:--:--  999k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x318be50] Invalid NAL unit 0, skipping.
-[h264 @ 0x3184780] Invalid NAL unit 0, skipping.
-[h264 @ 0x3184780] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-10/02/rec/05.43.34-05.43.44[M][@2a455][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/05.43.34-05.43.44[M][@2a455][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x3185b80] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  242 fps=0.0 q=-1.0 Lsize=    1971kB time=00:00:10.04 bitrate=1607.5kbits/s speed= 383x    
-video:1967kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.179725%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  4 1970k    0     0    4 98304      0   334k  0:00:05 --:--:--  0:00:05  333k  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  7857  11997700kk        00          00      7857  11478288kk            00    11336472kk    00::0000::0011    00::0000::0011  ----::----::----  11336461kk100 1971k    0  1127  100 1970k    543   949k  0:00:02  0:00:02 --:--:--  950k
-100 1971k    0  1127  100 1970k    494   865k  0:00:02  0:00:02 --:--:--  866k
-rm: can't remove '/share/192.168.1.10_0012169e66b0/2019-10-10/02/rec/05.43.34-05.43.44[M][@2a455][0].h264': No such file or directory
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x2a2ae50] Invalid NAL unit 0, skipping.
-[h264 @ 0x2a23780] Invalid NAL unit 0, skipping.
-[h264 @ 0x2a23780] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-10/02/rec/05.48.52-05.49.02[M][@2a458][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/05.48.52-05.49.02[M][@2a458][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x2a25a30] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  238 fps=0.0 q=-1.0 Lsize=    1931kB time=00:00:09.87 bitrate=1602.3kbits/s speed= 182x    
-video:1928kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.181334%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 43 1931k    0     0   43  848k      0  1176k  0:00:01 --:--:--  0:00:01 1174k100 1931k    0     0  100 1931k      0   860k  0:00:02  0:00:02 --:--:--  860k100 1933k    0  1262  100 1931k    560   858k  0:00:02  0:00:02 --:--:--  858k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x360ce50] Invalid NAL unit 0, skipping.
-[h264 @ 0x3605780] Invalid NAL unit 0, skipping.
-[h264 @ 0x3605780] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-10/02/rec/10.30.09-10.30.47[M][@2a4df][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/10.30.09-10.30.47[M][@2a4df][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x36b07b0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  622 fps=0.0 q=-1.0 Lsize=    5055kB time=00:00:25.87 bitrate=1600.3kbits/s speed= 139x    
-video:5047kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.155879%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 29 5055k    0     0   29 1488k      0  1373k  0:00:03  0:00:01  0:00:02 1372k 63 5055k    0     0   63 3216k      0  1543k  0:00:03  0:00:02  0:00:01 1543k 98 5055k    0     0   98 4960k      0  1608k  0:00:03  0:00:03 --:--:-- 1608k100 5056k    0  1127  100 5055k    288  1295k  0:00:03  0:00:03 --:--:-- 1295k
-ffmpeg version 4.2.1-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 6.3.0 (Debian 6.3.0-18+deb9u1) 20170516
-  configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-6 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libfribidi --enable-libass --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libxml2 --enable-libxvid --enable-libzimg
-  libavutil      56. 31.100 / 56. 31.100
-  libavcodec     58. 54.100 / 58. 54.100
-  libavformat    58. 29.100 / 58. 29.100
-  libavdevice    58.  8.100 / 58.  8.100
-  libavfilter     7. 57.100 /  7. 57.100
-  libswscale      5.  5.100 /  5.  5.100
-  libswresample   3.  5.100 /  3.  5.100
-  libpostproc    55.  5.100 / 55.  5.100
-[AVBSFContext @ 0x3ad8e50] Invalid NAL unit 0, skipping.
-[h264 @ 0x3ad1780] Invalid NAL unit 0, skipping.
-[h264 @ 0x3ad1780] Invalid NAL unit 8, skipping.
-    Last message repeated 5 times
-Input #0, h264, from '/share/192.168.1.10_0012169e66b0/2019-10-10/02/rec/11.04.01-11.04.44[M][@2a4f2][0].h264':
-  Duration: N/A, bitrate: N/A
-    Stream #0:0: Video: h264 (High), yuv420p(progressive), 704x576, 24 fps, 24 tbr, 1200k tbn, 48 tbc
-Output #0, mp4, to '/config/_scripts/_decode/11.04.01-11.04.44[M][@2a4f2][0].mp4':
-  Metadata:
-    encoder         : Lavf58.29.100
-    Stream #0:0: Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 704x576, q=2-31, 24 fps, 24 tbr, 1200k tbn, 1200k tbc
-Stream mapping:
-  Stream #0:0 -> #0:0 (copy)
-Press [q] to stop, [?] for help
-[mp4 @ 0x3ad3a30] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
-frame=  706 fps=0.0 q=-1.0 Lsize=    5735kB time=00:00:29.37 bitrate=1599.3kbits/s speed= 130x    
-video:5726kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.154313%
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 15 5735k    0     0   15  896k      0  1210k  0:00:04 --:--:--  0:00:04 1210k 43 5735k    0     0   43 2480k      0  1426k  0:00:04  0:00:01  0:00:03 1425k 72 5735k    0     0   72 4144k      0  1512k  0:00:03  0:00:02  0:00:01 1512k100 5735k    0     0  100 5735k      0  1304k  0:00:04  0:00:04 --:--:-- 1304k100 5736k    0  1127  100 5735k    256  1304k  0:00:04  0:00:04 --:--:-- 1304k
