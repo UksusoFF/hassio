@@ -168,7 +168,7 @@ binary_sensor:
 sensor:
   - platform: command_line
     name: Key Room Camera Cron
-    command: "/config/_scripts/dvr-slack.sh > /config/_scripts/dvr-slack.log 2>> /config/_scripts/dvr-slack.err"
+    command: "/config/_scripts/dvr-slack.sh"
     scan_interval: 300
   - platform: template
     sensors:
@@ -178,6 +178,10 @@ sensor:
         value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
   - platform: rpi_power
     text_state: true
+  - platform: yandex_transport
+    stop_id: 10001227
+    routes:
+    - 37
 
 camera:
   - platform: generic

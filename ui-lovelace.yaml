@@ -22,7 +22,12 @@ views:
         - sun.sun
       - type: weather-forecast
         entity: weather.weather
-  
+      - entities:
+          - entity: sensor.yandex_transport
+            format: relative
+        type: entities
+        path: default_view
+
   - title: Bedroom
     icon: mdi:hotel
     cards:
