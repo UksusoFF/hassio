@@ -3,6 +3,8 @@ resources:
     type: js
   - url: /community_plugin/button-card/button-card.js
     type: module
+  - url: /community_plugin/tosamara-card/tosamara-card.js
+    type: module
 
 title: My Awesome Home
 
@@ -22,11 +24,11 @@ views:
         - sun.sun
       - type: weather-forecast
         entity: weather.weather
-      - entities:
-          - entity: sensor.yandex_transport
-            format: relative
-        type: entities
-        path: default_view
+#      - entities:
+#          - entity: sensor.yandex_transport
+#            format: relative
+#        type: entities
+#        path: default_view
 
   - title: Bedroom
     icon: mdi:hotel
@@ -120,15 +122,15 @@ views:
   - title: Living Room
     icon: mdi:sofa
     cards:
-    - type: custom:button-card
-      entity: switch.living_room_light
-      show_name: false
-      icon: mdi:lightbulb
-      state:
-        - value: "on"
-          color: "#44739e"
-        - operator: default
-          color: "#FDD835"
+#    - type: custom:button-card
+#      entity: switch.living_room_light
+#      show_name: false
+#      icon: mdi:lightbulb
+#      state:
+#        - value: "on"
+#          color: "#44739e"
+#        - operator: default
+#          color: "#FDD835"
     - type: entities
       entities:
       - automation.turn_on_pc_at_morning
@@ -159,3 +161,30 @@ views:
           color: "#44739e"
         - operator: default
           color: "#FDD835"
+
+  - title: Bathroom
+    icon: mdi:shower
+    cards:
+    - type: custom:button-card
+      entity: switch.bathroom_light
+      show_name: false
+      icon: mdi:lightbulb
+      state:
+        - value: "on"
+          color: "#44739e"
+        - operator: default
+          color: "#FDD835"
+
+  - title: Bus Station
+    icon: mdi:bus-stop
+    cards:
+    - type: custom:tosamara-card
+      title: Телецентр (в город)
+      station: 996
+    - type: custom:tosamara-card
+      title: Динамо (из города)
+      station: 376
+    - type: custom:tosamara-card
+      title: Красноармейская (из города)
+      station: 944
+

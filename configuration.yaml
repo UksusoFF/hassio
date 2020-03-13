@@ -32,13 +32,16 @@ config:
 # Checks for available updates
 updater:
 
+mobile_app:
+
+
 hacs:
   token: !secret github_token
 
 # Discover some devices automatically
-discovery:
-  ignore:
-  - samsung_tv
+#discovery:
+#  ignore:
+#  - samsung_tv
 
 mqtt:
   discovery: true
@@ -112,11 +115,11 @@ switch:
   - platform: wake_on_lan
     host: 192.168.1.5
     name: "Kirill's PC"
-    mac_address: !secret kirills_pc_mac
+    mac: !secret kirills_pc_mac
   - platform: wake_on_lan
     host: 192.168.1.53
     name: "living_room_tv_on"
-    mac_address: !secret hisens_tv_mac_wifi
+    mac: !secret hisens_tv_mac_wifi
   - platform: mqtt
     name: "living_room_tv_off"
     state_topic: "/remoteapp/mobile/broadcast/ui_service/state"
@@ -138,12 +141,13 @@ switch:
           data:
             entity_id: switch.living_room_tv_off
   - platform: rpi_gpio
-    invert_logic: true
+    invert_logic: false
     ports:
       6: Bedroom Light
       13: Children Room Light
       19: Hallway Light
-      26: Living Room Light
+      26: Bathroom Light
+#      26: Living Room Light
 
 weather:
   - platform: openweathermap
@@ -178,10 +182,10 @@ sensor:
         value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
   - platform: rpi_power
     text_state: true
-  - platform: yandex_transport
-    stop_id: 10001227
-    routes:
-    - 37
+#  - platform: yandex_transport
+#    stop_id: 10001227
+#    routes:
+#    - 37
 
 camera:
   - platform: generic
