@@ -34,14 +34,8 @@ updater:
 
 mobile_app:
 
-
 hacs:
   token: !secret github_token
-
-# Discover some devices automatically
-#discovery:
-#  ignore:
-#  - samsung_tv
 
 mqtt:
   discovery: true
@@ -182,10 +176,6 @@ sensor:
         value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
   - platform: rpi_power
     text_state: true
-#  - platform: yandex_transport
-#    stop_id: 10001227
-#    routes:
-#    - 37
 
 camera:
   - platform: generic
