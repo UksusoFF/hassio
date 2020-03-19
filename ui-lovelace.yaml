@@ -5,6 +5,8 @@ resources:
     type: module
   - url: /community_plugin/tosamara-card/tosamara-card.js
     type: module
+  - url: /community_plugin/tosamara-card/tosamara-card.css
+    type: css
 
 title: My Awesome Home
 

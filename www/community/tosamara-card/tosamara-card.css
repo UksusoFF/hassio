@@ -1,0 +1,34 @@
+ul#tosamara-card-arrival-list {
+  list-style-type: none;
+  margin: 0 16px;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto; }
+  ul#tosamara-card-arrival-list li {
+    pointer-events: none;
+    clear: both;
+    margin: 0 0 15px 0;
+    border-bottom: 1px dotted #cbcbcb; }
+    ul#tosamara-card-arrival-list li a {
+      color: inherit;
+      text-decoration: none; }
+      ul#tosamara-card-arrival-list li a .time-arrive {
+        float: left;
+        width: 40px;
+        text-align: center; }
+      ul#tosamara-card-arrival-list li a .trans-ico {
+        float: right;
+        width: 40px;
+        text-align: center; }
+      ul#tosamara-card-arrival-list li a .trans-name {
+        font-size: 15px;
+        line-height: 15px;
+        margin-bottom: 10px;
+        margin-left: 40px;
+        margin-right: 40px; }
+      ul#tosamara-card-arrival-list li a .trans-detail {
+        font-size: 11px;
+        line-height: 11px;
+        margin-bottom: 5px;
+        margin-left: 40px;
+        margin-right: 40px; }
