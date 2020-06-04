@@ -78,10 +78,8 @@ lovelace:
       type: js
     - url: /hacsfiles/button-card/button-card.js
       type: module
-    - url: /hacsfiles/tosamara-card/tosamara-card.js
+    - url: /local/custom/tosamara-card/tosamara-card.js
       type: module
-    - url: /hacsfiles/tosamara-card/tosamara-card.css
-      type: css
 
 input_text:
   bedroom_tv_message:
