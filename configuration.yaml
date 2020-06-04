@@ -73,6 +73,15 @@ map:
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+      type: js
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/tosamara-card/tosamara-card.js
+      type: module
+    - url: /hacsfiles/tosamara-card/tosamara-card.css
+      type: css
 
 input_text:
   bedroom_tv_message:
@@ -137,11 +146,14 @@ switch:
   - platform: rpi_gpio
     invert_logic: false
     ports:
-      6: Bedroom Light
-      13: Children Room Light
-      19: Hallway Light
-      26: Bathroom Light
-#      26: Living Room Light
+      14: Hallway Light
+      15: Children Room Light
+      18: Bedroom Light
+      23: Bathroom Light
+      3: Living Room Light
+      4: Kitchen Main Light
+      27: Free One
+      22: Free Two
 
 weather:
   - platform: openweathermap
