@@ -16,11 +16,6 @@ views:
         - sun.sun
       - type: weather-forecast
         entity: weather.weather
-#      - entities:
-#          - entity: sensor.yandex_transport
-#            format: relative
-#        type: entities
-#        path: default_view
 
   - title: Bedroom
     icon: mdi:hotel
@@ -44,6 +39,7 @@ views:
               entities:
               - entity: binary_sensor.bedroom_tv
                 name: Status
+                icon: mdi:television-classic
               - entity: input_text.bedroom_tv_message
             - type: horizontal-stack
               cards:
@@ -119,7 +115,16 @@ views:
           color: "#44739e"
         - operator: default
           color: "#FDD835"
-
+    - type: custom:button-card
+      entity: switch.kitchen_second_light
+      show_name: false
+      icon: mdi:lightbulb
+      state:
+        - value: "on"
+          color: "#44739e"
+        - operator: default
+          color: "#FDD835"
+          
   - title: Living Room
     icon: mdi:sofa
     cards:
@@ -133,9 +138,76 @@ views:
         - operator: default
           color: "#FDD835"
     - type: entities
+      show_header_toggle: false
       entities:
       - automation.turn_on_pc_at_morning
-      - switch.kirill_s_pc
+      - entity: switch.kirill_s_pc
+        icon: mdi:desktop-tower-monitor
+    - type: custom:vertical-stack-in-card
+      title: TV
+      cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - entity: switch.hisense_tv
+          icon: mdi:television-classic
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            icon: mdi:power-plug-off
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+                payload: 'KEY_POWER'
+            styles:
+              card:
+                - box-shadow: none
+          - type: custom:button-card
+            icon: mdi:pause
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+                payload: 'KEY_PAUSE'
+            styles:
+              card:
+                - box-shadow: none
+          - type: custom:button-card
+            icon: mdi:play
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+                payload: 'KEY_PLAY'
+            styles:
+              card:
+                - box-shadow: none
+          - type: custom:button-card
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+                payload: 'KEY_VOLUMEDOWN'
+            styles:
+              card:
+                - box-shadow: none
+          - type: custom:button-card
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: mqtt.publish
+              service_data:
+                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+                payload: 'KEY_VOLUMEUP'
+            styles:
+              card:
+                - box-shadow: none
 
   - title: Children Room
     icon: mdi:gamepad-variant
@@ -188,4 +260,3 @@ views:
     - type: custom:tosamara-card
       title: Красноармейская (из города)
       station: 944
-
