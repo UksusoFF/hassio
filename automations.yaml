@@ -83,7 +83,7 @@
   condition: []
   action:
   - data: {}
-    service: hassio.snapshot_full
+    service: rest_command.google_backup
   mode: single
 - id: '1596310309565'
   alias: Backup Create
