@@ -12,14 +12,15 @@ homeassistant:
   time_zone: Europe/Samara
   # Customization file
   customize: !include customize.yaml
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /tmp
+    - /config/tmp
 
 #http:
 #  ssl_certificate: /ssl/fullchain.pem
 #  ssl_key: /ssl/privkey.pem
 
-breaking_changes:
+#breaking_changes:
 
 system_health:
 
@@ -38,10 +39,10 @@ hacs:
   token: !secret github_token
 
 # Enables support for tracking state changes over time
-history:
+#history:
 
 # View all events in a logbook
-logbook:
+#logbook:
 
 # Track the sun
 sun:
@@ -51,18 +52,18 @@ cloud:
 
 map:
 
-recorder:
+#recorder:
 #  purge_keep_days: 7
-  exclude:
-    domains:
-      - automation
-      - camera
-      - route
-      - hacs
-    entities:
-      - sensor.bedroom_tv_challenge
-      - sensor.bedroom_tv_info_url
-      - input_text.bedroom_tv_message
+#  exclude:
+#    domains:
+#      - automation
+#      - camera
+#      - route
+#      - hacs
+#    entities:
+#      - sensor.bedroom_tv_challenge
+#      - sensor.bedroom_tv_info_url
+#      - input_text.bedroom_tv_message
 
 lovelace:
   mode: yaml
@@ -104,6 +105,9 @@ rest_command:
     url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=KEY&key=KEY_VOLDOWN"
   bedroom_tv_message:
     url: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=ALERT&type=CENTER&message={{ states('input_text.bedroom_tv_message') }}"
+  google_backup:
+    url: "http://localhost:8055/gb/doBackup"
+    timeout: 300
 
 switch:
   - platform: wake_on_lan
@@ -157,14 +161,18 @@ sensor:
         value_template: !secret bedroom_tv_challenge
       bedroom_tv_info_url:
         value_template: "http://192.168.1.50:1080/cgi-bin/samygo-web-api.cgi?challenge={{ states('sensor.bedroom_tv_challenge') }}&action=CHANNELINFO"
-  - platform: rpi_power
-    text_state: true
+#  - platform: rpi_power
+#    text_state: true
 #  - platform: mqtt
 #    name: Hisense TV Source
 #    state_topic: "/remoteapp/mobile/broadcast/ui_service/state"
 #    value_template: "{{ value_json.sourcename }}"
 #    expire_after: 30
 #    force_update: true
+  - platform: mqtt
+    name: Google Backup
+    state_topic: "googlebackup/result"
+    json_attributes_topic: "googlebackup/result"
 
 camera:
   - platform: generic

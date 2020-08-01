@@ -7,14 +7,16 @@
   action:
   - data:
       entity_id: camera.porch_camera
-      filename: /tmp/doorbell.jpg
+      filename: /config/tmp/doorbell.jpg
     service: camera.snapshot
   - data:
       data:
-        file: /tmp/doorbell.jpg
+        file:
+          path: /config/tmp/doorbell.jpg
       message: Knock-knock!
       title: doorbell
     service: notify.slack
+  mode: single
 - id: '1538920016332'
   alias: Turn on PC at morning
   trigger:
@@ -62,12 +64,35 @@
   action:
   - data:
       entity_id: camera.intercom_camera
-      filename: /tmp/intercom.jpg
+      filename: /config/tmp/intercom.jpg
     service: camera.snapshot
   - data:
       data:
         file:
-          path: /tmp/intercom.jpg
+          path: /config/tmp/intercom.jpg
       message: Knock-knock!
       title: intercom
     service: notify.slack
+  mode: single
+- id: '1596309630141'
+  alias: Backup Upload
+  description: ''
+  trigger:
+  - at: '5:00:00'
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    service: hassio.snapshot_full
+  mode: single
+- id: '1596310309565'
+  alias: Backup Create
+  description: ''
+  trigger:
+  - at: '4:00:00'
+    platform: time
+  condition: []
+  action:
+  - data: {}
+    service: hassio.snapshot_full
+  mode: single
