@@ -8,8 +8,8 @@ views:
     cards:
       - type: glance
         entities:
-        - device_tracker.android_d40c29e4de4b0cc2
-        - device_tracker.redminote8t_redmi
+        - device_tracker.xiaomi_mi4c
+        - device_tracker.redmi_note_8t
       - type: entities
         entities:
         - binary_sensor.internet
@@ -18,7 +18,7 @@ views:
         entity: weather.weather
 
   - title: Bedroom
-    icon: mdi:hotel
+    icon: mdi:bed
     cards:
       - type: vertical-stack
         cards:

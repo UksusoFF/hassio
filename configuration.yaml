@@ -109,6 +109,9 @@ rest_command:
     url: "http://localhost:8055/gb/doBackup"
     timeout: 300
 
+shell_command:
+  dvr_slack: bash /config/_scripts/dvr-slack.sh
+
 switch:
   - platform: wake_on_lan
     host: 192.168.1.5
@@ -151,10 +154,6 @@ binary_sensor:
     scan_interval: 30
 
 sensor:
-  - platform: command_line
-    name: Key Room Camera Cron
-    command: "/config/_scripts/dvr-slack.sh"
-    scan_interval: 300
   - platform: template
     sensors:
       bedroom_tv_challenge:

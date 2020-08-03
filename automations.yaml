@@ -96,3 +96,26 @@
   - data: {}
     service: hassio.snapshot_full
   mode: single
+- id: '1596440114103'
+  alias: Startup States
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.kitchen_second_light
+    service: switch.turn_on
+  mode: single
+- id: '1596462187499'
+  alias: DVR Slack
+  description: ''
+  trigger:
+  - minutes: /5
+    platform: time_pattern
+  condition: []
+  action:
+  - data: {}
+    service: shell_command.dvr_slack
+  mode: single

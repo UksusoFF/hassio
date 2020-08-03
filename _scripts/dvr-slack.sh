@@ -31,6 +31,8 @@ DVR_ID="0012169e66b0"
 SLACK_TOKEN=$(cat "/config/secrets.yaml" | grep $SLACK_TOKEN_KEY)
 SLACK_TOKEN=$(echo $SLACK_TOKEN | sed -e "s/$SLACK_TOKEN_KEY: //")
 
+echo $SLACK_TOKEN
+
 mkdir -p "$TARGET_DIR"
 mkdir -p "$DECODE_DIR"
 echo "*" >"$TARGET_DIR/.gitignore"
