@@ -191,10 +191,10 @@ camera:
     input: "rtsp://192.168.1.21:554/user=admin&password=&channel=4&stream=0.sdp?"
   - platform: ffmpeg
     name: New Camera One
-    input: "rtsp://192.168.1.30:554/user=admin&password=&channel=4&stream=0.sdp?"
+    input: "rtsp://192.168.1.30:554/user=admin&password=&channel=1&stream=0.sdp?"
   - platform: ffmpeg
     name: New Camera Two
-    input: "rtsp://192.168.1.31:554/user=admin&password=&channel=4&stream=0.sdp?"
+    input: "rtsp://192.168.1.31:554/user=admin&password=&channel=1&stream=0.sdp?"
 
 notify:
   - name: Slack
