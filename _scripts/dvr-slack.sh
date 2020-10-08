@@ -25,7 +25,7 @@ FFMPEG_ARCH_NAME=$(basename "$FFMPEG_ARCH_PATH")
 SLACK_TOKEN_KEY="slack_token"
 SLACK_CHANNEL="#keyroom"
 
-DVR_IP="192.168.1.10"
+DVR_IP="192.168.1.21"
 DVR_ID="0012169e66b0"
 
 SLACK_TOKEN=$(cat "/config/secrets.yaml" | grep $SLACK_TOKEN_KEY)
