@@ -15,7 +15,7 @@ views:
         - binary_sensor.internet
         - sun.sun
       - type: weather-forecast
-        entity: weather.weather
+        entity: weather.home
 
   - title: Bedroom
     icon: mdi:bed
