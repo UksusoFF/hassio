@@ -173,6 +173,12 @@ sensor:
     state_topic: "googlebackup/result"
     json_attributes_topic: "googlebackup/result"
 
+sonoff:
+  username: !secret sonoff_email
+  password: !secret sonoff_password
+  mode: local
+  reload: always
+
 camera:
   - platform: generic
     name: Bedroom TV Image

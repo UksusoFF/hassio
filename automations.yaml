@@ -119,3 +119,17 @@
   - data: {}
     service: shell_command.dvr_slack
   mode: single
+- id: '1605209261256'
+  alias: Hallway Light
+  description: ''
+  trigger:
+  - platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: SwitchHallway
+  condition: []
+  action:
+  - service: switch.toggle
+    data: {}
+    entity_id: switch.hallway_light
+  mode: single

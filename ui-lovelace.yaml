@@ -102,6 +102,10 @@ views:
       entity: camera.first_floor_camera
     - type: picture-entity
       entity: camera.key_room_camera
+    - type: picture-entity
+      entity: camera.new_camera_one
+    - type: picture-entity
+      entity: camera.new_camera_two
 
   - title: Kitchen
     icon: mdi:silverware-fork-knife

@@ -10,3 +10,4 @@
 /secrets.yaml
 /_scripts/dvr-slack.err
 /_scripts/dvr-slack.log
+/.sonoff.json
