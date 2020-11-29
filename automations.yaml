@@ -124,9 +124,13 @@
   description: ''
   trigger:
   - platform: event
+    event_data:
+      name: SwitchHallwayOne
+    event_type: sonoff.remote
+  - platform: event
     event_type: sonoff.remote
     event_data:
-      name: SwitchHallway
+      name: SwitchHallwayTwo
   condition: []
   action:
   - service: switch.toggle
