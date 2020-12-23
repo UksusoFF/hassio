@@ -110,7 +110,7 @@
   - service: switch.turn_on
     data: {}
     entity_id: switch.hallway_light
-  - service: switch.turn_on
+  - service: switch.turn_off
     data: {}
     entity_id: switch.sonoff_1000de2973
   mode: single
