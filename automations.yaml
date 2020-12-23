@@ -107,6 +107,12 @@
   - data: {}
     entity_id: switch.kitchen_second_light
     service: switch.turn_on
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.hallway_light
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.sonoff_1000de2973
   mode: single
 - id: '1596462187499'
   alias: DVR Slack
@@ -136,4 +142,32 @@
   - service: switch.toggle
     data: {}
     entity_id: switch.hallway_light
+  mode: single
+- id: '1608754159276'
+  alias: Bathroom Heat On
+  description: ''
+  trigger:
+  - platform: time
+    at: '6:00'
+  - platform: time
+    at: '20:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.sonoff_1000de2973
+  mode: single
+- id: '1608754235334'
+  alias: Bathroom Heat Off
+  description: ''
+  trigger:
+  - platform: time
+    at: '9:30'
+  - platform: time
+    at: '23:30'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.sonoff_1000de2973
   mode: single

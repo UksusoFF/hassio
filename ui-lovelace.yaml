@@ -251,6 +251,10 @@ views:
           color: "#44739e"
         - operator: default
           color: "#FDD835"
+    - type: custom:button-card
+      entity: switch.sonoff_1000de2973
+      show_name: false
+      icon: mdi:radiator
 
   - title: Bus Station
     icon: mdi:bus-stop
