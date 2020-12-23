@@ -92,7 +92,7 @@ views:
               entity: camera.bedroom_tv_image
               
   - title: Porch
-    icon: mdi:door-open
+    icon: mdi:outdoor-lamp
     cards:
     - type: picture-entity
       entity: camera.porch_camera
@@ -113,7 +113,7 @@ views:
     - type: custom:button-card
       entity: switch.kitchen_main_light
       show_name: false
-      icon: mdi:lightbulb
+      icon: mdi:globe-light
       state:
         - value: "on"
           color: "#44739e"
@@ -122,7 +122,7 @@ views:
     - type: custom:button-card
       entity: switch.kitchen_second_light
       show_name: false
-      icon: mdi:lightbulb
+      icon: mdi:led-outline
       state:
         - value: "on"
           color: "#44739e"
