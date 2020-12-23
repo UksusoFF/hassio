@@ -113,7 +113,7 @@ views:
     - type: custom:button-card
       entity: switch.kitchen_main_light
       show_name: false
-      icon: mdi:globe-light
+      icon: mdi:lightbulb-group
       state:
         - value: "on"
           color: "#44739e"
@@ -122,7 +122,7 @@ views:
     - type: custom:button-card
       entity: switch.kitchen_second_light
       show_name: false
-      icon: mdi:led-outline
+      icon: mdi:led-strip-variant
       state:
         - value: "on"
           color: "#44739e"
