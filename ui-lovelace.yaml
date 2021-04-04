@@ -296,24 +296,3 @@ views:
     - type: custom:tosamara-card
       title: Красноармейская (из города)
       station: 944
-
-  - title: Car
-    icon: mdi:car
-    cards:
-    - type: entities
-      entities:
-        - switch.signalizatsiia_starline_additional_channel
-        - binary_sensor.signalizatsiia_starline_alarm
-        - sensor.signalizatsiia_starline_balance
-        - sensor.signalizatsiia_starline_battery
-        - binary_sensor.signalizatsiia_starline_doors
-        - switch.signalizatsiia_starline_engine
-        - sensor.signalizatsiia_starline_engine_temperature
-        - sensor.signalizatsiia_starline_gsm_signal
-        - binary_sensor.signalizatsiia_starline_hood
-        - switch.signalizatsiia_starline_horn
-        - sensor.signalizatsiia_starline_interior_temperature
-        - device_tracker.signalizatsiia_starline_location
-        - lock.signalizatsiia_starline_security
-        - binary_sensor.signalizatsiia_starline_trunk
-        - switch.signalizatsiia_starline_webasto
