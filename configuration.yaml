@@ -70,6 +70,8 @@ lovelace:
   resources:
     - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
       type: js
+    - url: /hacsfiles/stack-in-card/stack-in-card.js
+      type: module
     - url: /hacsfiles/button-card/button-card.js
       type: module
     - url: /local/custom/tosamara-card/tosamara-card.js
@@ -108,6 +110,13 @@ rest_command:
   google_backup:
     url: "http://localhost:8055/gb/doBackup"
     timeout: 300
+  domru_open_door_630900288544:
+    url: http://192.168.1.51:10080/api/open/630900288544/3221590/41833
+
+script:
+  domru_open_door_630900288544:
+    sequence:
+      - service: rest_command.domru_open_door_630900288544
 
 shell_command:
   dvr_slack: bash /config/_scripts/dvr-slack.sh
@@ -130,13 +139,8 @@ switch:
       23: Bathroom Light
       3: Living Room Light
       4: Kitchen Main Light
-      27: Free One
-      22: Kitchen Second Light
-
-weather:
-  - platform: openweathermap
-    name: Weather
-    api_key: !secret openweathermap_key
+      27: Kitchen Second Light
+      22: Free One
 
 binary_sensor:
   - platform: ping
@@ -179,6 +183,10 @@ sonoff:
   mode: local
   reload: always
 
+home_connect:
+  client_id: !secret home_connect_id
+  client_secret: !secret home_connect_secret
+
 camera:
   - platform: generic
     name: Bedroom TV Image
@@ -201,6 +209,10 @@ camera:
   - platform: ffmpeg
     name: New Camera Two
     input: "rtsp://192.168.1.31:554/user=admin&password=&channel=1&stream=0.sdp?"
+  - platform: generic
+    name: domru_domofon_17666535
+    still_image_url: http://192.168.1.51:10080/api/camera/snapshot/630900288544/17666535
+    stream_source: http://192.168.1.51:10080/api/camera/stream/630900288544/17666535
 
 notify:
   - name: Slack
@@ -213,4 +225,3 @@ notify:
 
 group: !include groups.yaml
 automation: !include automations.yaml
-script: !include scripts.yaml

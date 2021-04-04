@@ -63,16 +63,29 @@
   condition: []
   action:
   - data:
-      entity_id: camera.intercom_camera
-      filename: /config/tmp/intercom.jpg
+      filename: /config/tmp/intercom_top.jpg
     service: camera.snapshot
+    target:
+      entity_id: camera.new_camera_one
+  - service: camera.snapshot
+    data:
+      filename: /config/tmp/intercom_face.jpg
+    target:
+      entity_id: camera.domru_domofon_17666535
   - data:
+      message: Knock-knock!
+      title: intercom_top
       data:
         file:
-          path: /config/tmp/intercom.jpg
-      message: Knock-knock!
-      title: intercom
+          path: /config/tmp/intercom_top.jpg
     service: notify.slack
+  - service: notify.slack
+    data:
+      data:
+        file:
+          path: /config/tmp/intercom_face.jpg
+      title: intercom_face
+      message: ' '
   mode: single
 - id: '1596309630141'
   alias: Backup Upload
@@ -170,4 +183,18 @@
   - service: switch.turn_off
     data: {}
     entity_id: switch.sonoff_1000de2973
+  mode: single
+- id: '1617532036974'
+  alias: Kitchen Second Light
+  description: ''
+  trigger:
+  - platform: event
+    event_type: sonoff.remote
+    event_data:
+      name: Kitchen
+  condition: []
+  action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.kitchen_second_light
   mode: single

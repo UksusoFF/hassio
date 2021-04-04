@@ -8,7 +8,7 @@ views:
     cards:
       - type: glance
         entities:
-        - device_tracker.xiaomi_mi4c
+        - device_tracker.oukitel_wp5_pro
         - device_tracker.redmi_note_8t
       - type: entities
         entities:
@@ -106,6 +106,18 @@ views:
       entity: camera.new_camera_one
     - type: picture-entity
       entity: camera.new_camera_two
+    - type: picture-glance
+      title: Intercom
+      entities:
+        - entity: script.domru_open_door_630900288544
+          icon: "mdi:door-open"
+          name: Open
+          tap_action:
+            action: toggle
+      hold_action:
+          action: call-service
+          service: rest_command.domru_open_door_630900288544
+      camera_image: camera.domru_domofon_17666535
 
   - title: Kitchen
     icon: mdi:silverware-fork-knife
@@ -128,7 +140,14 @@ views:
           color: "#44739e"
         - operator: default
           color: "#FDD835"
-          
+    - type: glance
+      title: Dishwasher
+      show_name: false
+      entities:
+      - sensor.posudomoechnaia_mashina_program_progress
+      - binary_sensor.posudomoechnaia_mashina_door
+      - switch.posudomoechnaia_mashina_power
+
   - title: Living Room
     icon: mdi:sofa
     cards:
@@ -251,10 +270,19 @@ views:
           color: "#44739e"
         - operator: default
           color: "#FDD835"
-    - type: custom:button-card
-      entity: switch.sonoff_1000de2973
-      show_name: false
-      icon: mdi:radiator
+    - type: custom:stack-in-card
+      mode: vertical
+      cards:
+        - type: custom:button-card
+          entity: switch.sonoff_1000de2973
+          show_name: false
+          icon: mdi:radiator
+        - type: vertical-stack
+          cards:
+            - type: entities
+              entities:
+                - automation.bathroom_heat_on
+                - automation.bathroom_heat_off
 
   - title: Bus Station
     icon: mdi:bus-stop
@@ -268,3 +296,24 @@ views:
     - type: custom:tosamara-card
       title: Красноармейская (из города)
       station: 944
+
+  - title: Car
+    icon: mdi:car
+    cards:
+    - type: entities
+      entities:
+        - switch.signalizatsiia_starline_additional_channel
+        - binary_sensor.signalizatsiia_starline_alarm
+        - sensor.signalizatsiia_starline_balance
+        - sensor.signalizatsiia_starline_battery
+        - binary_sensor.signalizatsiia_starline_doors
+        - switch.signalizatsiia_starline_engine
+        - sensor.signalizatsiia_starline_engine_temperature
+        - sensor.signalizatsiia_starline_gsm_signal
+        - binary_sensor.signalizatsiia_starline_hood
+        - switch.signalizatsiia_starline_horn
+        - sensor.signalizatsiia_starline_interior_temperature
+        - device_tracker.signalizatsiia_starline_location
+        - lock.signalizatsiia_starline_security
+        - binary_sensor.signalizatsiia_starline_trunk
+        - switch.signalizatsiia_starline_webasto
