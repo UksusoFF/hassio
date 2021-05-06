@@ -1,0 +1,163 @@
+
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+        - entity: switch.hisense_tv
+          icon: mdi:television-classic
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        icon: mdi:power-plug-off
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_POWER'
+      - type: custom:button-card
+        icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_UP'
+      - type: custom:button-card
+        icon: mdi:border-none-variant
+        styles:
+          icon:
+            - opacity: 0
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        icon: mdi:chevron-left
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_LEFT'
+      - type: custom:button-card
+        icon: mdi:record
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_OK'
+      - type: custom:button-card
+        icon: mdi:chevron-right
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_RIGHT'
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        icon: mdi:border-none-variant
+        styles:
+          icon:
+            - opacity: 0
+      - type: custom:button-card
+        icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_DOWN'
+      - type: custom:button-card
+        icon: mdi:border-none-variant
+        styles:
+          icon:
+            - opacity: 0
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        icon: mdi:arrow-left
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_RETURNS'
+      - type: custom:button-card
+        icon: mdi:border-none-variant
+        styles:
+          icon:
+            - opacity: 0
+      - type: custom:button-card
+        icon: mdi:home
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_HOME'
+
+  - type: divider
+    style:
+      height: 20px
+      opacity: 0
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        icon: mdi:volume-mute
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_MUTE'
+      - type: custom:button-card
+        icon: mdi:volume-minus
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_VOLUMEDOWN'
+      - type: custom:button-card
+        icon: mdi:volume-plus
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_VOLUMEUP'
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        icon: mdi:stop
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_STOP'
+      - type: custom:button-card
+        icon: mdi:pause
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_PAUSE'
+      - type: custom:button-card
+        icon: mdi:play
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
+            payload: 'KEY_PLAY'

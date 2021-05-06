@@ -158,6 +158,7 @@ binary_sensor:
     scan_interval: 30
 
 sensor:
+  - platform: uptime
   - platform: template
     sensors:
       bedroom_tv_challenge:
@@ -209,10 +210,9 @@ camera:
   - platform: ffmpeg
     name: New Camera Two
     input: "rtsp://192.168.1.31:554/user=admin&password=&channel=1&stream=0.sdp?"
-  - platform: generic
+  - platform: ffmpeg
     name: domru_domofon_17666535
-    still_image_url: http://192.168.1.51:10080/api/camera/snapshot/630900288544/17666535
-    stream_source: http://192.168.1.51:10080/api/camera/stream/630900288544/17666535
+    input: "http://192.168.1.51:10080/api/camera/stream/630900288544/17666535"
 
 notify:
   - name: Slack

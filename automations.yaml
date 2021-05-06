@@ -161,7 +161,9 @@
   description: ''
   trigger:
   - platform: time
-    at: '6:00'
+    at: '5:00'
+  - platform: time
+    at: '8:45'
   - platform: time
     at: '20:00'
   condition: []
@@ -174,6 +176,8 @@
   alias: Bathroom Heat Off
   description: ''
   trigger:
+  - platform: time
+    at: '7:30'
   - platform: time
     at: '9:30'
   - platform: time

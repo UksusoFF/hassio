@@ -168,69 +168,7 @@ views:
         icon: mdi:desktop-tower-monitor
     - type: custom:vertical-stack-in-card
       title: TV
-      cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-        - entity: switch.hisense_tv
-          icon: mdi:television-classic
-      - type: horizontal-stack
-        cards:
-          - type: custom:button-card
-            icon: mdi:power-plug-off
-            tap_action:
-              action: call-service
-              service: mqtt.publish
-              service_data:
-                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
-                payload: 'KEY_POWER'
-            styles:
-              card:
-                - box-shadow: none
-          - type: custom:button-card
-            icon: mdi:pause
-            tap_action:
-              action: call-service
-              service: mqtt.publish
-              service_data:
-                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
-                payload: 'KEY_PAUSE'
-            styles:
-              card:
-                - box-shadow: none
-          - type: custom:button-card
-            icon: mdi:play
-            tap_action:
-              action: call-service
-              service: mqtt.publish
-              service_data:
-                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
-                payload: 'KEY_PLAY'
-            styles:
-              card:
-                - box-shadow: none
-          - type: custom:button-card
-            icon: mdi:volume-minus
-            tap_action:
-              action: call-service
-              service: mqtt.publish
-              service_data:
-                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
-                payload: 'KEY_VOLUMEDOWN'
-            styles:
-              card:
-                - box-shadow: none
-          - type: custom:button-card
-            icon: mdi:volume-plus
-            tap_action:
-              action: call-service
-              service: mqtt.publish
-              service_data:
-                topic: "/remoteapp/tv/remote_service/HomeAssistant/actions/sendkey"
-                payload: 'KEY_VOLUMEUP'
-            styles:
-              card:
-                - box-shadow: none
+      cards: !include "ui-lovelace-hisense.yaml"
 
   - title: Children Room
     icon: mdi:gamepad-variant
@@ -296,3 +234,4 @@ views:
     - type: custom:tosamara-card
       title: Красноармейская (из города)
       station: 944
+
