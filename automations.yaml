@@ -157,23 +157,30 @@
     entity_id: switch.hallway_light
   mode: single
 - id: '1608754159276'
-  alias: Bathroom Heat On
+  alias: Bathroom Work Days Heat On
   description: ''
   trigger:
   - platform: time
-    at: '5:00'
+    at: '6:00'
   - platform: time
     at: '8:45'
   - platform: time
     at: '20:00'
-  condition: []
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
   action:
   - service: switch.turn_on
     data: {}
     entity_id: switch.sonoff_1000de2973
   mode: single
 - id: '1608754235334'
-  alias: Bathroom Heat Off
+  alias: Bathroom Work Days Heat Off
   description: ''
   trigger:
   - platform: time
@@ -182,7 +189,14 @@
     at: '9:30'
   - platform: time
     at: '23:30'
-  condition: []
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
   action:
   - service: switch.turn_off
     data: {}
@@ -201,4 +215,34 @@
   - service: switch.toggle
     target:
       entity_id: switch.kitchen_second_light
+  mode: single
+- id: '1621967339974'
+  alias: Bathroom Free Days Heat On
+  description: ''
+  trigger:
+  - platform: time
+    at: '8:30'
+  condition:
+  - condition: time
+    weekday: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.sonoff_1000de2973
+  mode: single
+- id: '1621967359475'
+  alias: Bathroom Free Days Heat Off
+  description: ''
+  trigger:
+  - platform: time
+    at: '9:30'
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.sonoff_1000de2973
   mode: single
