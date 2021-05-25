@@ -161,7 +161,7 @@
   description: ''
   trigger:
   - platform: time
-    at: '6:00'
+    at: '5:00'
   - platform: time
     at: '8:45'
   - platform: time
