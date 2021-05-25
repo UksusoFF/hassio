@@ -222,6 +222,8 @@ views:
               entities:
                 - automation.bathroom_heat_on
                 - automation.bathroom_heat_off
+                - automation.bathroom_free_days_heat_on
+                - automation.bathroom_free_days_heat_off
 
   - title: Bus Station
     icon: mdi:bus-stop
