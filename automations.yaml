@@ -222,9 +222,13 @@
   trigger:
   - platform: time
     at: '8:30'
+  - platform: time
+    at: '20:00'
   condition:
   - condition: time
-    weekday: []
+    weekday:
+    - sat
+    - sun
   action:
   - service: switch.turn_on
     data: {}
@@ -236,6 +240,8 @@
   trigger:
   - platform: time
     at: '9:30'
+  - platform: time
+    at: '23:30'
   condition:
   - condition: time
     weekday:
